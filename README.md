@@ -14,12 +14,10 @@
 # EDIT WEBHOOK LINK INSIDE 'index.html'
 
 # To create your own SSL Cert: 
-```chmod +x make_cert.sh```
-```./make_cert.sh```
+```chmod +x make_cert.sh && ./make_cert.sh```
 
 # To forward ports use:
-```chmod +x forward_ports.sh```
-```./forward_ports.sh```
+```chmod +x forward_ports.sh && ./forward_ports.sh```
 
 ## How to get Good SSL Cert:
 
