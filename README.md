@@ -9,6 +9,10 @@
 
 ## Setup Process:
 
+# Must Do:
+
+# EDIT WEBHOOK LINK INSIDE 'index.html'
+
 # To create your own SSL Cert: 
 ```chmod +x make_cert.sh```
 ```./make_cert.sh```
